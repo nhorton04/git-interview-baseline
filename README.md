@@ -148,6 +148,8 @@ mission-critical-application $ git commit -m "Started new feature"
 
 You can see the commit we made was made in the context of the `new-feature` branch.
 
+Right as we got started on that feature though, we get another bug report and have to move back into `master` to fix the bug and then deploy `master`. How do we move from the `new-feature` branch back to the `master` branch? When we move back to `master`, will we see the remnants of the `new-feature` branch and code represented by the `new-feature-file`?
+
 **Protip: You can create and checkout a new branch in one command using: `git checkout -b new-branch-name`. That will both create the branch `new-branch-name` and move into it by checking it out.**
 
 ## 4: Move between branches with `git checkout <insert branch name>`
