@@ -55,7 +55,7 @@ mission-critical-application $ git commit -m "First working version of applicati
 5. We programmed an entire working first version in `application.rb` (_not reflected in the CLI commands above, but we did, and it was awesome, great job_).
 6. We added our `application.rb` to git with `git add application.rb`.
 7. We committed the first working version of our application with `git commit -m "First working version of application.rb"`.
-8. You deploy your application to production and people start using it (_also not reflected in the CLI commands above, but we did, and it too was awesome, great job_).
+8. We deploy our application to production and people start using it (_also not reflected in the CLI commands above, but we did, and it too was awesome, great job_).
 
 With our application online and customers rolling in, we notice a bug and quickly add a fix in the form of a file, `first-bug-fix.rb` (_this is just an example_).
 
@@ -71,7 +71,7 @@ Right now our git log could be visualized as a timeline composed of two commits.
 
 #### About `master` branch
 
-Notice that these commits are occurring in a linear sequence of events, almost like a timeline? We call this timeline a branch. Whenever you are working on commits in git, you are adding them on a timeline of code called a branch. The branch you are on by default at the start of any repository, your main timeline, the main branch is called master.
+Notice that these commits are occurring in a linear sequence of events, almost like a timeline? We call this timeline a branch. Whenever you are working on commits in git, you are adding them on a timeline of code called a branch. The default branch you are on at the start of any repository - your main timeline - is called `master`.
 
 ![Master Branch](https://dl.dropboxusercontent.com/s/v75as2cf6xr8n8a/2015-11-02%20at%2011.17%20AM.png)
 
@@ -83,7 +83,7 @@ On branch master
 nothing to commit, working directory clean
 ```
 
-The `master` git branch is our default branch. One of the responsible ways to use git is to make sure that the `master` branch is always clean with working code so that if we ever need to add a bug fix, we can do it and deploy a new version of the application immediately. We don't put broken code in master so that we can always deploy master.
+The `master` git branch is our default branch. One of the responsible ways to use git is to make sure that the `master` branch is always clean with working code so that if we ever need to add a bug fix, we can do it and deploy a new version of the application immediately. We don't put broken code in `master` so that we can always deploy it.
 
 #### Starting a new feature with `git branch new-feature`
 
@@ -143,6 +143,10 @@ You can see the commit we made was made in the context of the `new-feature` bran
 
 Right as we got started on that feature though, we get another bug report and have to move back into `master` to fix the bug and then deploy `master`. How do we move from the `new-feature` branch back to the `master` branch? When we move back to `master`, will we see the remnants of the `new-feature` branch and code represented by the `new-feature-file`?
 
+_(Hint 1: use `git checkout <branch name>` - in this case, `git checkout master`.)_
+
+_(Hint 2: Nope! The branches each keep separate versions of files until they're merged.)_
+
 **Protip: You can create and checkout a new branch in one command using: `git checkout -b new-branch-name`. That will both create the branch `new-branch-name` and move into it by checking it out.**
 
 ## 4: Move between branches with `git checkout <insert branch name>`
@@ -179,7 +183,8 @@ Let's look at our timeline now.
 
 We were able to update the timeline in master with the fix to the bug without touching any of the code in new-feature. `new-feature` branch and timeline remains 1 commit behind master, because the second bug fix commit occured in master and `new-feature` branch was created only with the commits at the moment when the branch was created. You could describe `master` as being 1 commit ahead of the `new-feature` branch.
 
-Let's go back into `new-feature`, complete the feature, commit it, then look at the timeline. Remember how to move from `master` back to `new-feature`? _(Hint: enter `git checkout new-feature`)._
+Let's go back into `new-feature`, complete the feature, commit it, then look at the timeline. Remember how to move from `master` back to `new-feature`?
+_(Hint: enter `git checkout new-feature`)._
 
 ```
 mission-critical-application $ git status
