@@ -29,16 +29,9 @@ fbee832 Started new-feature (aviflombaum, 2 days ago)
 
 Two days ago we started working on our new-feature (`fbee832`). Yesterday we were almost done (`62d840`). Today we made progress, but it's still broken (`512bec5`). In our current state, if we had to push the repository live and deploy the latest version of our code to production, our users would see a half-finished, currently broken new-feature. That's no good.
 
-So why can't we just wait until we're done with new-feature to deploy our code and push the repository live to our users? Well, currently there's a big bug that is breaking the application for all users. The bug is an easy fix, one simple change and deployment of your code can make everything work again. Unfortunately, even if you made that commit, you can't currently deploy it; while that commit might fix the bug, you'd still be pushing your half-finished and broken new-feature.
+So why can't we just wait until we're done with new-feature to deploy our code and push the repository live to our users? Well, currently there's a big bug that is breaking the application for all users. The bug is an easy fix, one simple change and deployment of your code can make everything work again. Unfortunately, even if you made that commit, you can't currently deploy it; while that commit might fix the bug, you'd also be pushing your half-finished and broken new-feature.
 
-```
-r4212d1 Fix to application breaking bug (aviflombaum, just now)
-512bec5 Still broken, working on new-feature (aviflombaum, 2 hours ago)
-62d840 Almost done with new-feature (aviflombaum, 1 day ago)
-fbee832 Started new-feature (aviflombaum, 2 days ago)
-```
-
-See, we can't push all those commits. What we need to do instead is isolate our work on `new-feature` into its own copy of our code, so that we have a stable, working version of the application to use until our work on `new-feature` is completed. We can do this using a feature in git called branches.
+What we need to do instead is isolate our work on `new-feature` into its own copy of our code, so that we have a stable, working version of the application to use until our work on `new-feature` is completed. We can do this using branches in git.
 
 ## 1: Make a branch with `git branch`
 
