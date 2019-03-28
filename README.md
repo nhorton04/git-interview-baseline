@@ -40,9 +40,9 @@ fbee832 Started new-feature (aviflombaum, 2 days ago)
 
 See, we can't push all those commits. What we need to do instead is isolate our work on `new-feature` into its own copy of our code, so that we have a stable, working version of the application to use until our work on `new-feature` is completed. We can do this using a feature in git called branches.
 
-## Objective 1: Make a branch with `git branch`
+## 1: Make a branch with `git branch`
 
-To experiment with the collaborative features of git, let's make a repository that we can use as a sandbox. To follow along, copy and paste these commands locally.
+To experiment with the collaborative features of git, let's make a repository that we can use as a sandbox. To follow along, copy and paste these commands in your command line.
 
 From our home directory we're going to make a new directory for our mission-critical-application by entering `mkdir <directory name>`.
 
@@ -56,7 +56,7 @@ mission-critical-application $ git commit -m "First working version of applicati
 ```
 
 1. We made a new directory with `mkdir mission-critical-application`.
-2. We moved into that directory with `cd mission-critical-application`.
+2. We used moved into that directory with `cd mission-critical-application`.
 3. We turned that directory into a git repository with `git init`.
 4. We created our application `touch application.rb`.
 5. We programmed an entire working first version in `application.rb` (_not reflected in the CLI commands above, but we did, and it was awesome, great job_).
@@ -76,7 +76,7 @@ Right now our git log could be visualized as a timeline composed of two commits.
 
 ![First Two Commits](https://dl.dropboxusercontent.com/s/ikorf1qvvp4tay0/2015-11-02%20at%2011.15%20AM.png)
 
-#### About `master` branch.
+#### About `master` branch
 
 Notice that these commits are occurring in a linear sequence of events, almost like a timeline? We call this timeline a branch. Whenever you are working on commits in git, you are adding them on a timeline of code called a branch. The branch you are on by default at the start of any repository, your main timeline, the main branch is called master.
 
@@ -94,13 +94,13 @@ The `master` git branch is our default branch. One of the responsible ways to us
 
 #### Starting a new feature with `git branch new-feature`
 
-To keep master clean, when we want to start a new feature, we should do it in an isolated feature branch. Our timeline will look as follows:
+To keep master clean and operational, when we want to start a new feature, we should do it in an isolated feature branch. Our timeline will look as follows:
 
 ![Feature Branch](https://dl.dropboxusercontent.com/s/d61r0fxyriaf5oj/2015-11-02%20at%2011.52%20AM.png)
 
-After commit 2, we will branch out of master and create a new timeline for commits and events specifically related to the new feature. The master timeline remains unchanged and clean. Now that we've covered the idea of the new-feature branch, let's actually make it.
+After commit 2, we will branch out of master and create a new timeline for commits and events specifically related to the new feature. The master timeline remains unchanged and clean.
 
-To make a new branch simply type: `git branch <branch name>`. In the case of a branch relating to a new feature, we'd name the branch `new-feature` like so:
+To make a new branch, type: `git branch <branch name>`. In the case of a branch relating to a new feature, we'd name the branch `new-feature` like so:
 
 ```
 mission-critical-application $ git branch new-feature
@@ -116,7 +116,7 @@ mission-critical-application $ git branch -a
 
 The `*` in front of the branch `master` indicates that `master` is currently our working branch and git tells us that we also have a branch called `new-feature`. If we made a commit right now, that commit would still be applied to our `master` branch.
 
-## Objective 2: Switch branches with `git checkout`
+## 2: Switch branches with `git checkout`
 
 We need to checkout or move into our `new-feature` timeline or branch so that git knows that all commits made apply to only that unit of work, timeline, or branch. We can move between branches with `git checkout <branch name>`.
 
@@ -133,7 +133,7 @@ nothing to commit, working directory clean
 
 We started on `master` and then checked out our `new-feature` branch with `git checkout new-feature`, thereby moving into that timeline.
 
-## Objective 3: Create commits within a branch
+## 3: Create commits within a branch
 
 Let's make a commit in this `new-feature` and get the feature started by making a new file, `new-feature-file` to represent the code for the new feature.
 
@@ -148,11 +148,9 @@ mission-critical-application $ git commit -m "Started new feature"
 
 You can see the commit we made was made in the context of the `new-feature` branch.
 
-Right as we got started on that feature though, we get another bug report and have to move back into master to fix the bug and then deploy master. How do we move from `new-feature` branch back to `master`? What will our code look like when we move back to `master`, will we see the remnants of the `new-feature` branch and code represented by the `new-feature-file`?
-
 **Protip: You can create and checkout a new branch in one command using: `git checkout -b new-branch-name`. That will both create the branch `new-branch-name` and move into it by checking it out.**
 
-## Objective 4: Move between branches with `git checkout <insert branch name>`
+## 4: Move between branches with `git checkout <insert branch name>`
 
 You can always move between branches with `git checkout`. Since we are currently on `new-feature`, we can move back to master with `git checkout master`.
 
@@ -166,13 +164,6 @@ And we can move back to `new-feature` with `git checkout new-feature`.
 ```
 mission-critical-application $ git checkout new-feature
 Switched to branch 'new-feature'
-```
-
-And back again with:
-
-```
-mission-critical-application $ git checkout master
-Switched to branch 'master'
 ```
 
 ![Switching between branches](https://dl.dropboxusercontent.com/s/qzajqsd9f6njauc/2015-11-02%20at%2012.12%20PM.png)
@@ -227,7 +218,7 @@ Let's look at our timeline again.
 
 The final step of our `new-feature` work sprint is to figure out how to merge that timeline into the master timeline.
 
-## Objective 5: Merge branches with `git merge`
+## 5: Merge branches with `git merge`
 
 Our goal is to bring the timeline of commits that occurred on the `new-feature` branch into the `master` so that at the end of the operation, our `master` timeline looks like:
 
@@ -255,7 +246,7 @@ Fast-forward
 
 Now the branches have been merged and if you `ls`, you'll see the `new-feature` file from the `new-feature` branch in your current working directory that is checked out to master.
 
-## Objective 6: Update branches from remotes with `git fetch`
+## 6: Update branches from remotes with `git fetch`
 
 Your local branches can attach to remote branches that live on the internet, generally on GitHub, that your team members might contribute to and you can download locally.
 
@@ -290,7 +281,7 @@ Our remote copy on GitHub has a file, `remote-bug-fix`, presumably some code tha
 
 After you fetch, you have access to the remote code but you still have to merge it. How do you merge a change fetched from `origin/master` into your current master? This brings us to our next objective:
 
-## Objective 7: Merge updated remote branches with `git merge`
+## 7: Merge updated remote branches with `git merge`
 
 From within your local master branch, type: `git merge origin/master`, referring to the branch's full path, `remote/branch`, or `origin/master`.
 
@@ -320,18 +311,18 @@ When we checkout a remote branch fetched, git will create a local branch to trac
 
 `git fetch` is a pretty low-level git command we don't use that much because it always requires two steps, first `git fetch` and then `git merge` to actually integrate those changes into your working branch. Generally, if you are in `master` you want to immediately `fetch` and `merge` any changes to the remote master.
 
-## Objective 8: Combine `git fetch` with `git merge` by using `git pull`
+## 8: Combine `git fetch` with `git merge` by using `git pull`
 
-If you want to both fetch and merge, which is what you want to do 99% of the time, just type `git pull`. `git pull` is literally the combination of both `git fetch` and `git merge`.
+If you want to both fetch and merge (which is what you want to do 99% of the time), just type `git pull`. `git pull` is literally the combination of both `git fetch` and `git merge`.
 
-When you `git pull` the following things will occur:
+When you `git pull`, the following things will occur:
 
 1. You will `git fetch` all remote changes, including those on the current branch, existing branches, and new branches.
-2. Any changes that are on a remote branch which is being tracked by your local branch, that is to say, if you are on `master` and there is a change to `origin/master`, those changes will be automatically merged.
+2. Any changes on a remote branch that's being tracked by your local branch will be automatically merged. (For example, if you are on `master` and there is a change to `origin/master`, the change will be automatically merged).
 
 ## Conclusion
 
-Git is complex, and collaborating with people in this matter is just hard - there's no easy way to allow hundreds of people to all work on the same code base. These workflows are just being introduced to you. You'll have lots of time to practice them and memorize what each command does. Don't try to learn it all at once; instead just start to get an understanding of what's what.
+Git is complex, and collaborating with people in this matter is difficult - there's no easy way to allow hundreds of people to all work on the same code base. These workflows are just being introduced to you. You'll have lots of time to practice them and memorize what each command does. Don't try to learn it all at once; instead just start to get an understanding of what's what.
 
 ![XKCD Git](http://imgs.xkcd.com/comics/git.png)
 
