@@ -194,7 +194,7 @@ mission-critical-application $ git checkout new-feature
 Switched to branch 'new-feature'
 ```
 
-Let's rename `new-feature-file` to `new-feature` to signify the code we wrote to complete the feature and commit this change. We can rename a file with `mv <original filename> <new filename>` BASH command.
+Let's rename `new-feature-file` to `new-feature` to signify the code we wrote to complete the feature and commit this change. We can rename a file with a `mv <original filename> <new filename>` BASH command.
 
 ```
 mission-critical-application $ mv new-feature-file new-feature
@@ -213,7 +213,7 @@ The final step of our `new-feature` work sprint is to figure out how to merge th
 
 ## 5: Merge branches with `git merge`
 
-Our goal is to bring the timeline of commits that occurred on the `new-feature` branch into the `master` so that at the end of the operation, our `master` timeline looks like so:
+Our goal is to bring the timeline of commits that occurred on the `new-feature` branch into `master` so that at the end of the operation, our `master` timeline looks like so:
 
 ![Merged Timeline](https://dl.dropboxusercontent.com/s/bf0cktf3ag549z2/2015-11-02%20at%201.15%20PM.png)
 
