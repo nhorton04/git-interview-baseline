@@ -159,13 +159,6 @@ mission-critical-application $ git checkout master
 Switched to branch 'master'
 ```
 
-And we can move back to `new-feature` with `git checkout new-feature`.
-
-```
-mission-critical-application $ git checkout new-feature
-Switched to branch 'new-feature'
-```
-
 ![Switching between branches](https://dl.dropboxusercontent.com/s/qzajqsd9f6njauc/2015-11-02%20at%2012.12%20PM.png)
 
 From master, one thing you'll notice is that the code you wrote on `new-feature`, namely the file, `new-feature-file`, is not present in the current directory.
