@@ -215,7 +215,7 @@ The final step of our `new-feature` work sprint is to figure out how to merge th
 
 ## 5: Merge branches with `git merge`
 
-Our goal is to bring the timeline of commits that occurred on the `new-feature` branch into the `master` so that at the end of the operation, our `master` timeline looks like:
+Our goal is to bring the timeline of commits that occurred on the `new-feature` branch into the `master` so that at the end of the operation, our `master` timeline looks like so:
 
 ![Merged Timeline](https://dl.dropboxusercontent.com/s/bf0cktf3ag549z2/2015-11-02%20at%201.15%20PM.png)
 
@@ -239,7 +239,7 @@ Fast-forward
  create mode 100644 new-feature
 ```
 
-Now the branches have been merged and if you `ls`, you'll see the `new-feature` file from the `new-feature` branch in your current working directory that is checked out to master.
+Now the branches have been merged and if you `ls`, you'll see the `new-feature` file from the `new-feature` branch in your current working directory that is checked out to `master`.
 
 ## 6: Update branches from remotes with `git fetch`
 
@@ -304,11 +304,11 @@ Switched to a new branch 'remote-feature-branch'
 
 When we checkout a remote branch fetched, git will create a local branch to track that remote and switch to that branch. We can now do work, push it back up to GitHub, and another developer can fetch those changes down.
 
-`git fetch` is a pretty low-level git command we don't use that much because it always requires two steps, first `git fetch` and then `git merge` to actually integrate those changes into your working branch. Generally, if you are in `master` you want to immediately `fetch` and `merge` any changes to the remote master.
+`git fetch` is a pretty low-level git command we don't use that much because it always requires two steps, first `git fetch` and then `git merge` to actually integrate those changes into your working branch. Generally, if you are in `master` you want to immediately `fetch` and `merge` any changes to the remote master. That brings us to our next objective: using `git pull`.
 
 ## 8: Combine `git fetch` with `git merge` by using `git pull`
 
-If you want to both fetch and merge (which is what you want to do 99% of the time), just type `git pull`. `git pull` is literally the combination of both `git fetch` and `git merge`.
+If you want to both fetch and merge (which is what you want to do 99% of the time), just type `git pull`. `git pull` is literally the combination of `git fetch` and `git merge`.
 
 When you `git pull`, the following things will occur:
 
